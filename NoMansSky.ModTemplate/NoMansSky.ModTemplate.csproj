@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>$(RELOADEDIIMODS)\NoMansSky.ModTemplate</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ModConfig.json" />
+    <None Remove="Preview.png" />
+    <None Remove="Publish.ps1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ModConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.0.0" />
+    <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NoMansSky.Api">
+      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\NoMansSky.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="NoMansSky.Api.Lib">
+      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\NoMansSky.Api.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Reloaded.ModHelper">
+      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\Reloaded.ModHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Reloaded.ModHelper.Interfaces">
+      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\Reloaded.ModHelper.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
