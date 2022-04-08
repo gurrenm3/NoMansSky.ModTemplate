@@ -14,10 +14,10 @@ namespace NoMansSky.ModTemplate
         /// </summary>
         public Mod(Game _game, IModConfig _config, IReloadedHooks _hooks, ILogger _logger) : base(_game, _config, _hooks, _logger)
         {
-            Logger.WriteLineAsync("Hello World!");
+            Logger.WriteLine("Hello World!");
 
             // Below are 2 examples of using ModEvents
-            _game.OnProfileSelected += () => Logger.WriteLineAsync("The player just selected a save file");
+            _game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
             _game.OnMainMenu += OnMainMenu;
         }
 
@@ -31,7 +31,7 @@ namespace NoMansSky.ModTemplate
 
         private void OnMainMenu()
         {
-            Logger.WriteLineAsync("Main Menu shown!");
+            Logger.WriteLine("Main Menu shown!");
         }
     }
 }
