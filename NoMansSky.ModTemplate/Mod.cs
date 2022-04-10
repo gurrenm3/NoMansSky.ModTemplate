@@ -13,14 +13,14 @@ namespace NoMansSky.ModTemplate
         /// <summary>
         /// Initializes your mod along with some necessary info.
         /// </summary>
-        public Mod(Game _game, IModConfig _config, IReloadedHooks _hooks, IModLogger _logger) : base(_game, _config, _hooks, _logger)
+        public Mod(IModConfig _config, IReloadedHooks _hooks, IModLogger _logger) : base(_config, _hooks, _logger)
         {
             Logger.WriteLine("Hello World!");
 
             // Below are 3 examples of using ModEvents
-            _game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
-            _game.OnMainMenu += OnMainMenu;
-            _game.OnGameJoined.AddListener(GameJoined);
+            Game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
+            Game.OnMainMenu += OnMainMenu;
+            Game.OnGameJoined.AddListener(GameJoined);
         }
 
         /// <summary>
