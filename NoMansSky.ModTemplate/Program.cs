@@ -82,7 +82,8 @@ namespace NoMansSky.ModTemplate
             // The line below is where this mod aquires the Game instance that was published.
             _modLoader.GetController<Game>().TryGetTarget(out _game);
 
-            _mod = new Mod(_game, _modConfig, _hooks, _logger);
+            var modLogger = new ModLogger(modConfig, _logger);
+            _mod = new Mod(_game, _modConfig, _hooks, modLogger);
         }
 
         private void OnConfigurationUpdated(IConfigurable obj)

@@ -1,5 +1,6 @@
 ﻿using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
+using Reloaded.ModHelper;
 using NoMansSky.Api;
 
 namespace NoMansSky.ModTemplate
@@ -12,13 +13,14 @@ namespace NoMansSky.ModTemplate
         /// <summary>
         /// Initializes your mod along with some necessary info.
         /// </summary>
-        public Mod(Game _game, IModConfig _config, IReloadedHooks _hooks, ILogger _logger) : base(_game, _config, _hooks, _logger)
+        public Mod(Game _game, IModConfig _config, IReloadedHooks _hooks, IModLogger _logger) : base(_game, _config, _hooks, _logger)
         {
             Logger.WriteLine("Hello World!");
 
-            // Below are 2 examples of using ModEvents
+            // Below are 3 examples of using ModEvents
             _game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
             _game.OnMainMenu += OnMainMenu;
+            _game.OnGameJoined.AddListener(GameJoined);
         }
 
         /// <summary>
@@ -32,6 +34,11 @@ namespace NoMansSky.ModTemplate
         private void OnMainMenu()
         {
             Logger.WriteLine("Main Menu shown!");
+        }
+
+        private void GameJoined()
+        {
+            Logger.WriteLine("The game was joined!");
         }
     }
 }
