@@ -23,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.0.0" />
+    <PackageReference Include="Gurrenm3.Reloaded.ModHelper" Version="1.0.0" />
+    <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.1.0" />
     <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
   </ItemGroup>
 
@@ -33,12 +34,6 @@
     </Reference>
     <Reference Include="NoMansSky.Api.Lib">
       <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\NoMansSky.Api.Lib.dll</HintPath>
-    </Reference>
-    <Reference Include="Reloaded.ModHelper">
-      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\Reloaded.ModHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="Reloaded.ModHelper.Interfaces">
-      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\Reloaded.ModHelper.Interfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
 
