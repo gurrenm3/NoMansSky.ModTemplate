@@ -53,6 +53,16 @@ namespace NoMansSky.ModTemplate
         private IGame gameInstance = null!;
 
         /// <summary>
+        /// Instance of the game loop.
+        /// </summary>
+        private IGameLoop gameLoop = null!;
+
+        /// <summary>
+        /// Instance of the mod logger.
+        /// </summary>
+        private IModLogger Logger = null!;
+
+        /// <summary>
         /// Entry point for your mod.
         /// </summary>
         public void StartEx(IModLoaderV1 loaderApi, IModConfigV1 modConfig)
@@ -78,12 +88,15 @@ namespace NoMansSky.ModTemplate
                 Your mod code starts below.
                 Visit https://github.com/Reloaded-Project for additional optional libraries.
             */
+
+            Logger = new ModLogger(modConfig, _logger);
+
             // The API publishes the instance of the Game class so mods can access it.
             // The line below is where this mod aquires the Game instance that was published.
             _modLoader.GetController<IGame>().TryGetTarget(out gameInstance);
+            _modLoader.GetController<IGameLoop>().TryGetTarget(out gameLoop);
 
-            var modLogger = new ModLogger(modConfig, _logger);
-            _mod = new Mod(_modConfig, _hooks, modLogger);
+            _mod = new Mod(_modConfig, _hooks, Logger);
         }
 
         private void OnConfigurationUpdated(IConfigurable obj)

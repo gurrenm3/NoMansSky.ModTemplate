@@ -23,18 +23,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Gurrenm3.NoMansSky.Api.Shared" Version="1.0.0" />
     <PackageReference Include="Gurrenm3.Reloaded.ModHelper" Version="1.0.0" />
     <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.1.0" />
     <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="NoMansSky.Api">
-      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\NoMansSky.Api.dll</HintPath>
-    </Reference>
-    <Reference Include="NoMansSky.Api.Lib">
-      <HintPath>C:\Users\thoma\Desktop\Reloaded-II\Mods\NoMansSky.Api\NoMansSky.Api.Lib.dll</HintPath>
-    </Reference>
+	  <Reference Include="NoMansSky.Api">
+		  <HintPath>$(RELOADEDIIMODS)\NoMansSky.Api\NoMansSky.Api.dll</HintPath>
+	  </Reference>
   </ItemGroup>
-
+	
 </Project>
