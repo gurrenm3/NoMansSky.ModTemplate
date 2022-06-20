@@ -97,9 +97,15 @@ namespace NoMansSky.ModTemplate
             _modLoader.GetController<IGame>().TryGetTarget(out gameInstance);
             _modLoader.GetController<IGameLoop>().TryGetTarget(out gameLoop);
 
-            if (gameInstance == null || gameLoop == null)
+            if (gameInstance == null)
             {
-                Logger.WriteLine("Critical Error! Failed to get the game instance or game loop from the API. Nothing will work until this is fixed.", LogLevel.Error);
+                Logger.WriteLine("Critical Error! Failed to get the game instance from the API. Nothing will work until this is fixed.", LogLevel.Error);
+                return;
+            }
+
+            if (gameLoop == null)
+            {
+                Logger.WriteLine("Critical Error! Failed to get the game loop from the API. Nothing will work until this is fixed.", LogLevel.Error);
                 return;
             }
 

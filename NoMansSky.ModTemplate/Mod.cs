@@ -15,9 +15,12 @@ namespace NoMansSky.ModTemplate
         /// </summary>
         public Mod(IModConfig _config, IReloadedHooks _hooks, IModLogger _logger) : base(_config, _hooks, _logger)
         {
+            // This is how to log a message to the Reloaded II Console.
             Logger.WriteLine("Hello World!");
 
-            // Below are 3 examples of using ModEvents
+
+            // The API relies heavily on Mod Events.
+            // Below are 3 examples of using them.
             Game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
             Game.OnMainMenu += OnMainMenu;
             Game.OnGameJoined.AddListener(GameJoined);
@@ -28,7 +31,11 @@ namespace NoMansSky.ModTemplate
         /// </summary>
         public override void Update()
         {
-            
+            // Here is an example of checking for keyboard keys
+            if (Keyboard.IsPressed(Key.UpArrow))
+            {
+                Logger.WriteLine("The Up Arrow was just pressed!");
+            }
         }
 
         private void OnMainMenu()
