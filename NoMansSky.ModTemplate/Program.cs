@@ -68,7 +68,8 @@ namespace NoMansSky.ModTemplate
         public void StartEx(IModLoaderV1 loaderApi, IModConfigV1 modConfig)
         {
 #if DEBUG
-        // Attaches debugger in debug mode; ignored in release.
+        // Attaches debugger in debug mode; ignored in release. 
+        // Use this if you want to breakpoint your mod
         Debugger.Launch();
 #endif
 
@@ -95,6 +96,12 @@ namespace NoMansSky.ModTemplate
             // The line below is where this mod aquires the Game instance that was published.
             _modLoader.GetController<IGame>().TryGetTarget(out gameInstance);
             _modLoader.GetController<IGameLoop>().TryGetTarget(out gameLoop);
+
+            if (gameInstance == null || gameLoop == null)
+            {
+                Logger.WriteLine("Critical Error! Failed to get the game instance or game loop from the API. Nothing will work until this is fixed.", LogLevel.Error);
+                return;
+            }
 
             _mod = new Mod(_modConfig, _hooks, Logger);
         }
