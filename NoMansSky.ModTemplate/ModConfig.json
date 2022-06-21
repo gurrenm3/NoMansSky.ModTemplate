@@ -17,6 +17,7 @@
   "ModDependencies": [ "reloaded.sharedlib.hooks", "NoMansSky.Api" ],
   "OptionalDependencies": [],
   "SupportedAppId": [
+    "nms.exe",
     "nms.exe.unpacked.exe"
   ]
 }
