@@ -96,8 +96,10 @@ namespace NoMansSky.ModTemplate
             Logger = new ModLogger(modConfig, _logger);
 
             // create memory manager. Doing this early in case it's needed during initialization.
-            memoryMgr = new Reloaded.ModHelper.MemoryManager();
+            memoryMgr = new MemoryManager();
             memoryMgr.AddConverter(new NMSStringConverter(memoryMgr), alwaysRegister: true);
+            memoryMgr.AddConverter(new ArrayConverter(memoryMgr), alwaysRegister: true);
+            memoryMgr.AddConverter(new ListConverter(memoryMgr), alwaysRegister: true);
             memoryMgr.AddConverter(new NMSTemplateConverter(memoryMgr), alwaysRegister: true);
 
 
