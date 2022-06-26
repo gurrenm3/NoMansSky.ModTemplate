@@ -6,6 +6,7 @@ using Reloaded.Mod.Interfaces.Internal;
 using Reloaded.ModHelper;
 using NoMansSky.Api;
 using System;
+using libMBIN.NMS;
 
 #if DEBUG
 using System.Diagnostics;
@@ -56,6 +57,7 @@ namespace NoMansSky.ModTemplate
         /// Instance of the game loop.
         /// </summary>
         private IGameLoop gameLoop = null!;
+        private IMemoryManager memoryMgr = null!;
 
         /// <summary>
         /// Instance of the mod logger.
@@ -90,7 +92,14 @@ namespace NoMansSky.ModTemplate
                 Visit https://github.com/Reloaded-Project for additional optional libraries.
             */
 
+            // Create Mog Logger.
             Logger = new ModLogger(modConfig, _logger);
+
+            // create memory manager. Doing this early in case it's needed during initialization.
+            memoryMgr = new Reloaded.ModHelper.MemoryManager();
+            memoryMgr.AddConverter(new NMSStringConverter(memoryMgr), alwaysRegister: true);
+            memoryMgr.AddConverter(new NMSTemplateConverter(memoryMgr), alwaysRegister: true);
+
 
             // The API publishes the instance of the Game class so mods can access it.
             // The line below is where this mod aquires the Game instance that was published.

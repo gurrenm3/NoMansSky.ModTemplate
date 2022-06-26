@@ -41,6 +41,9 @@
 	  <Reference Include="Reloaded.ModHelper.Shared">
 	    <HintPath>$(RELOADEDIIMODS)\NoMansSky.Api\Reloaded.ModHelper.Shared.dll</HintPath>
 	  </Reference>
+	  <Reference Include="libMBIN">
+		  <HintPath>$(RELOADEDIIMODS)\NoMansSky.Api\libMBIN.dll</HintPath>
+	  </Reference>
   </ItemGroup>
 	
 </Project>
