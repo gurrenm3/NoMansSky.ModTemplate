@@ -2,6 +2,7 @@
 using Reloaded.Mod.Interfaces;
 using Reloaded.ModHelper;
 using NoMansSky.Api;
+using libMBIN.NMS.Globals;
 
 namespace NoMansSky.ModTemplate
 {
@@ -41,6 +42,30 @@ namespace NoMansSky.ModTemplate
         private void OnMainMenu()
         {
             Logger.WriteLine("Main Menu shown!");
+
+
+            // here is an example of modding 
+            GlobalMbinModding();
+        }
+
+        // here is an example of modding 
+        private void GlobalMbinModding()
+        {
+            var memoryMgr = new MemoryManager(); // create a memory manager.
+
+            // get the address of the global
+            long globalAddress = Game.MBinManager.GetMbin("GcSettlementGlobals").Address;
+            Logger.WriteLine($"Settlement global address: {globalAddress.ToString("X")}");
+
+            // get the global itself
+            var globalMbin = memoryMgr.GetValue<GcSettlementGlobals>(globalAddress);
+
+            // example of messing with variables from the global
+            Logger.WriteLine($"GcSettlementGlobals.MaxNPCPopulation: {globalMbin.MaxNPCPopulation}");
+
+            // example of changing it
+            globalMbin.MaxNPCPopulation = 6969697;
+            memoryMgr.SetValue(globalAddress, globalMbin); // update the global in memory
         }
 
         private void GameJoined()
