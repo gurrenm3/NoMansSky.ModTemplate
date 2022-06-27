@@ -54,17 +54,17 @@ namespace NoMansSky.ModTemplate
             var memoryMgr = new MemoryManager(); // create a memory manager.
 
             // get the address of the global
-            long globalAddress = Game.MBinManager.GetMbin("GcSettlementGlobals").Address;
-            Logger.WriteLine($"Settlement global address: {globalAddress.ToString("X")}");
+            long globalAddress = Game.MBinManager.GetMbin("GcPlayerGlobals").Address;
+            Logger.WriteLine($"Player global address: {globalAddress.ToString("X")}");
 
             // get the global itself
-            var globalMbin = memoryMgr.GetValue<GcSettlementGlobals>(globalAddress);
+            var globalMbin = memoryMgr.GetValue<GcPlayerGlobals>(globalAddress);
 
             // example of messing with variables from the global
-            Logger.WriteLine($"GcSettlementGlobals.MaxNPCPopulation: {globalMbin.MaxNPCPopulation}");
+            Logger.WriteLine($"GcPlayerGlobals.GroundRunSpeed: {globalMbin.GroundRunSpeed}");
 
             // example of changing it
-            globalMbin.MaxNPCPopulation = 6969697;
+            globalMbin.GroundRunSpeed = 16; // doubling run speed.
             memoryMgr.SetValue(globalAddress, globalMbin); // update the global in memory
         }
 
