@@ -57,6 +57,10 @@ namespace NoMansSky.ModTemplate
         /// Instance of the game loop.
         /// </summary>
         private IGameLoop gameLoop = null!;
+
+        /// <summary>
+        /// Instance of the memory manager.
+        /// </summary>
         private IMemoryManager memoryMgr = null!;
 
         /// <summary>
