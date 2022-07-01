@@ -50,13 +50,11 @@ namespace NoMansSky.ModTemplate
         // here is an example of modding globals with the new MemoryManager
         private void GlobalMbinModding()
         {
-            var memoryMgr = new MemoryManager(); // create a memory manager.
-
             // example of getting the run speed from the player globals
-            float currentRunSpeed = memoryMgr.GetValue<float>("GcPlayerGlobals.GroundRunSpeed");
+            float currentRunSpeed = memory.GetValue<float>("GcPlayerGlobals.GroundRunSpeed");
 
             // example of settng the run speed to twice it's original value.
-            memoryMgr.SetValue("GcPlayerGlobals.GroundRunSpeed", currentRunSpeed * 2);
+            memory.SetValue("GcPlayerGlobals.GroundRunSpeed", currentRunSpeed * 2);
         }
 
         private void GameJoined()
