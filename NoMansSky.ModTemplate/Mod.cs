@@ -21,10 +21,15 @@ namespace NoMansSky.ModTemplate
 
 
             // The API relies heavily on Mod Events.
-            // Below are 3 examples of using them.
+            // Below are 4 examples of using them.
             Game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
-            Game.OnMainMenu += OnMainMenu;
+            Game.OnMainMenu += OnMainMenu;            
             Game.OnGameJoined.AddListener(GameJoined);
+            Game.OnWarpFinished.AddListener(() =>
+            {
+                var system = CurrentSystem.GetSystemData();
+                Logger.WriteLine($"Loaded into system: {system.Name}");
+            });
         }
 
         /// <summary>
