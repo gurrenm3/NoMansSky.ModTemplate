@@ -49,17 +49,17 @@ namespace NoMansSky.ModTemplate
             Logger.WriteLine("Main Menu shown!");
 
 
-            GlobalMbinModding();
+            MbinModdingExample();
         }
 
         // here is an example of modding globals with the new MemoryManager
-        private void GlobalMbinModding()
+        private void MbinModdingExample()
         {
             // example of getting the run speed from the player globals
-            float currentRunSpeed = memory.GetValue<float>("GcPlayerGlobals.GroundRunSpeed");
+            float currentRunSpeed = GetValue<float>("GcPlayerGlobals.GroundRunSpeed");
 
             // example of settng the run speed to twice it's original value.
-            memory.SetValue("GcPlayerGlobals.GroundRunSpeed", currentRunSpeed * 2);
+            SetValue("GcPlayerGlobals.GroundRunSpeed", currentRunSpeed * 2);
         }
 
         private void GameJoined()
