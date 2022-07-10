@@ -2,7 +2,9 @@
 using Reloaded.Mod.Interfaces;
 using Reloaded.ModHelper;
 using NoMansSky.Api;
+using libMBIN.NMS;
 using libMBIN.NMS.Globals;
+using libMBIN.NMS.GameComponents;
 
 namespace NoMansSky.ModTemplate
 {
