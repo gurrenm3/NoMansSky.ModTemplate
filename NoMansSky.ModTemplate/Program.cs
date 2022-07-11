@@ -113,8 +113,8 @@ namespace NoMansSky.ModTemplate
             memoryMgr.AddConverter(new ThreadedNMSTemplateConverter(memoryMgr), alwaysRegister: true);
 
 
-            // The API publishes the instance of the Game class so mods can access it.
-            // The line below is where this mod aquires the Game instance that was published.
+            // The API publishes the instances of essential classes so mods can access them.
+            // The lines below are aquiring the Game, GameLoop, and NMSTemplate instances that were published.
             _modLoader.GetController<NMSTemplate>().TryGetTarget(out libmbinInstance);
             _modLoader.GetController<IGame>().TryGetTarget(out gameInstance);
             _modLoader.GetController<IGameLoop>().TryGetTarget(out gameLoop);
