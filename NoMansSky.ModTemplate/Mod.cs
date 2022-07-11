@@ -5,6 +5,7 @@ using NoMansSky.Api;
 using libMBIN.NMS;
 using libMBIN.NMS.Globals;
 using libMBIN.NMS.GameComponents;
+using Random = Reloaded.ModHelper.Random;
 
 namespace NoMansSky.ModTemplate
 {
