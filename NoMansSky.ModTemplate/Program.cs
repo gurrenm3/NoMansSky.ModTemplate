@@ -7,6 +7,7 @@ using Reloaded.ModHelper;
 using NoMansSky.Api;
 using System;
 using libMBIN.NMS;
+using libMBIN;
 
 #if DEBUG
 using System.Diagnostics;
@@ -69,6 +70,11 @@ namespace NoMansSky.ModTemplate
         private IModLogger Logger = null!;
 
         /// <summary>
+        /// This is needed to sync the instances of libmbin between API and mods.
+        /// </summary>
+        private NMSTemplate libmbinInstance;
+
+        /// <summary>
         /// Entry point for your mod.
         /// </summary>
         public void StartEx(IModLoaderV1 loaderApi, IModConfigV1 modConfig)
@@ -109,8 +115,16 @@ namespace NoMansSky.ModTemplate
 
             // The API publishes the instance of the Game class so mods can access it.
             // The line below is where this mod aquires the Game instance that was published.
+            _modLoader.GetController<NMSTemplate>().TryGetTarget(out libmbinInstance);
             _modLoader.GetController<IGame>().TryGetTarget(out gameInstance);
             _modLoader.GetController<IGameLoop>().TryGetTarget(out gameLoop);
+
+
+            if (libmbinInstance == null)
+            {
+                Logger.WriteLine("Critical Error! Failed to get the libMbin Instance from the API. Nothing will work until this is fixed.", LogLevel.Error);
+                return;
+            }
 
             if (gameInstance == null)
             {

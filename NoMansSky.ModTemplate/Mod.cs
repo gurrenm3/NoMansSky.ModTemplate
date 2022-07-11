@@ -6,6 +6,7 @@ using libMBIN.NMS;
 using libMBIN.NMS.Globals;
 using libMBIN.NMS.GameComponents;
 using Random = Reloaded.ModHelper.Random;
+using System;
 
 namespace NoMansSky.ModTemplate
 {
@@ -28,11 +29,6 @@ namespace NoMansSky.ModTemplate
             Game.OnProfileSelected += () => Logger.WriteLine("The player just selected a save file");
             Game.OnMainMenu += OnMainMenu;            
             Game.OnGameJoined.AddListener(GameJoined);
-            Game.OnWarpFinished.AddListener(() =>
-            {
-                var system = CurrentSystem.GetSystemData();
-                Logger.WriteLine($"Loaded into system: {system.Name}");
-            });
         }
 
         /// <summary>
@@ -40,11 +36,7 @@ namespace NoMansSky.ModTemplate
         /// </summary>
         public override void Update()
         {
-            // Here is an example of checking for keyboard keys
-            if (Keyboard.IsPressed(Key.UpArrow))
-            {
-                Logger.WriteLine("The Up Arrow was just pressed!");
-            }
+
         }
 
         private void OnMainMenu()
