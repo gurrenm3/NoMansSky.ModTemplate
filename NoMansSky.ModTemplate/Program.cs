@@ -82,7 +82,7 @@ namespace NoMansSky.ModTemplate
 #if DEBUG
         // Attaches debugger in debug mode; ignored in release. 
         // Use this if you want to breakpoint your mod
-        Debugger.Launch();
+        // Debugger.Launch();
 #endif
 
             _modLoader = (IModLoader)loaderApi;
